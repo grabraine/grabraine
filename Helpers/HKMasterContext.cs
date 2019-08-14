@@ -1,0 +1,32 @@
+using Microsoft.EntityFrameworkCore;
+using WebApi.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebApi.Helpers
+{
+    public class HKMasterContext : DbContext
+    {
+     
+
+        public DbSet<CptCodes> CptCodes { get; set; }
+          public DbSet<ICDCodes> ICDCodes { get; set; }
+        public DbSet<DriverReg> DriverReg {get; set;}
+      
+         public HKMasterContext(DbContextOptions<HKMasterContext> options)
+            : base(options)
+        {
+            
+        }
+          protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Customize the ASP.NET Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Identity table names and more.
+            // Add your customizations after calling base.OnModelCreating(builder);
+        }
+      
+    }
+}
